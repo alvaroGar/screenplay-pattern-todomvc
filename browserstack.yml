@@ -1,0 +1,7 @@
+userName: alvarogarcia_A6DSut
+accessKey: AZCUYWiXGFwpyg4qDyWw
+platforms:
+  - os: Windows
+    osVersion: 11
+    browserName: Chrome
+    browserVersion: latest
