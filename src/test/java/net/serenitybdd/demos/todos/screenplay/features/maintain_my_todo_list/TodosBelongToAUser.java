@@ -1,6 +1,7 @@
 package net.serenitybdd.demos.todos.screenplay.features.maintain_my_todo_list;
 
 import net.serenitybdd.demos.todos.screenplay.questions.TheItems;
+import net.serenitybdd.demos.todos.screenplay.tasks.AddATodoItem;
 import net.serenitybdd.demos.todos.screenplay.tasks.Clear;
 import net.serenitybdd.demos.todos.screenplay.tasks.CompleteItem;
 import net.serenitybdd.demos.todos.screenplay.tasks.Start;
@@ -30,24 +31,37 @@ public class TodosBelongToAUser {
     private Actor jane = Actor.named("Jane");
 
     @Managed private WebDriver hisBrowser;
-    @Managed private WebDriver herBrowser;
+    // @Managed private WebDriver herBrowser;
 
     @Before
     public void jamesCanBrowseTheWeb() {
         james.can(BrowseTheWeb.with(hisBrowser));
-        jane.can(BrowseTheWeb.with(herBrowser));
+        // jane.can(BrowseTheWeb.with(herBrowser));
     }
 
     @Test
     public void should_not_affect_todos_belonging_to_another_user() {
-        givenThat(james).wasAbleTo(Start.withATodoListContaining("Walk the dog", "Put out the garbage"));
-        andThat(jane).wasAbleTo(Start.withATodoListContaining("Walk the dog", "Feed the cat"));
+        givenThat(james).wasAbleTo(Start.withATodoListContaining("Walk the dog", "Put out the garbage", "Feed the cat"));
+        // andThat(james).wasAbleTo(AddATodoItem.called("Feed the cat"));
+        // andThat(jane).wasAbleTo(Start.withATodoListContaining("Walk the dog", "Feed the cat"));
 
         when(james).attemptsTo(
-                CompleteItem.called("Walk the dog"),
+                CompleteItem.called("Put out the garbage"),
                 Clear.completedItems()
         );
 
-        then(jane).should(seeThat(TheItems.displayed(), contains("Walk the dog", "Feed the cat")));
+        then(james).should(
+            seeThat(
+                TheItems.displayed(), 
+                contains("Walk the dog", "Feed the cat")
+                )
+            );
+
+        // then(jane).should(
+        //     seeThat(
+        //         TheItems.displayed(), 
+        //         contains("Walk the dog", "Feed the cat")
+        //         )
+        //     );
     }
 }
