@@ -18,7 +18,7 @@ import net.serenitybdd.demos.todos.screenplay.tasks.*;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
-import net.thucydides.core.model.TestOutcome;
+//import net.thucydides.core.model.TestOutcome;
 
 import java.util.List;
 

@@ -1,8 +1,13 @@
 package net.serenitybdd.demos.todos.pageobjects.features.record_todos;
 
+import net.serenitybdd.annotations.Managed;
+import net.serenitybdd.annotations.Steps;
+import net.serenitybdd.annotations.Title;
+import net.serenitybdd.annotations.WithTag;
+import net.serenitybdd.annotations.WithTags;
 import net.serenitybdd.demos.todos.pageobjects.steps.TodoUserSteps;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.*;
+//import net.thucydides.core.annotations.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;

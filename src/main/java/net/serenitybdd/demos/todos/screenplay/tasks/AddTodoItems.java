@@ -1,9 +1,11 @@
 package net.serenitybdd.demos.todos.screenplay.tasks;
 
 import com.google.common.collect.ImmutableList;
+
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.thucydides.core.annotations.Step;
+//import net.thucydides.core.annotations.Step;
 
 import java.util.Collection;
 import java.util.List;
